@@ -27,7 +27,7 @@
 }
 
 .line {
-  width: 100%;
+  width: 100vw;
   height: 1px;
   background-color: gray;
 }
@@ -35,4 +35,15 @@
 .notFound {
   margin: 1rem auto;
   text-align: center;
+}
+
+/* Search in Staffs */
+.colum-search {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.img-card {
+  width: 100%;
 }
