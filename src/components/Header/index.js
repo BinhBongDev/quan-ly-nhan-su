@@ -4,42 +4,52 @@ import {
     NavItem,
     NavbarToggler,
     Collapse,
-    NavLink,
     Nav,
     NavbarBrand
 } from 'reactstrap';
+import {NavLink} from 'react-router-dom'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const closeNav = () => setIsOpen(false)
+
   return (
         <Navbar color="primary" light expand="md" >
-            <NavbarBrand href="/">Home</NavbarBrand>
-            <NavbarToggler onClick={() => toggle() } />
-            <Collapse isOpen={isOpen} navbar>
-                <Nav className="mr-auto" navbar>
-                    <NavItem>
-                        <NavLink href="#">
-                            <span className="fa fa-users fa-lg"></span>{' '}
-                            Staff
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#">
-                            <span className="fa fa-address-card fa-lg"></span>{' '}
-                            Department
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#">
-                            <span className="fa fa-money fa-lg"></span>{' '}
-                            Salary
-                        </NavLink>
-                    </NavItem>
-                </Nav>
-            </Collapse>
+            
+                <NavbarBrand href='/'>Home</NavbarBrand>
+                <NavbarToggler onClick={() => toggle() } />
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav className="mr-auto" navbar>
+                        <NavItem onClick={closeNav}>
+                            <NavLink className={isActive =>
+        "nav-link" + (!isActive ? " unselected" : "")
+    } to={'/'}>
+                                <span className="fa fa-users fa-lg"></span>{' '}
+                                Staffs
+                            </NavLink>
+                        </NavItem>
+                        <NavItem onClick={closeNav}>
+                            <NavLink to={'/dept'} className={isActive =>
+        "nav-link" + (!isActive ? " unselected" : "")
+    } >
+                                <span className="fa fa-address-card fa-lg"></span>{' '}
+                                Department
+                            </NavLink>
+                        </NavItem>
+                        <NavItem onClick={closeNav}>
+                            <NavLink className={isActive =>
+        "nav-link" + (!isActive ? " unselected" : "")
+    } to={'/salary'}>
+                                <span className="fa fa-money fa-lg"></span>{' '}
+                                Salary
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            
         </Navbar>
    
   );
