@@ -1,24 +1,16 @@
-import {Card, CardBody, CardTitle} from 'reactstrap'
+import {Card, CardBody, CardImg, CardTitle} from 'reactstrap'
 
 const CardStaff = () => {
 
     return(
-        <Card
-  style={{
-    width: '15rem'
-  }}
->
-  <img
-    alt="Sample"
-    src="https://picsum.photos/300/200"
-    className='img-card'
-  />
-  <CardBody>
-    <CardTitle tag="h5" className='text-center'>
-      Nguyen Van F
-    </CardTitle>
-  </CardBody>
-</Card>
+        <Card>
+          <CardImg src='https://picsum.photos/300/200' alt='ten' />
+          <CardBody>
+            <CardTitle tag="h5" className='text-center'>
+              Nguyen Van F
+            </CardTitle>
+          </CardBody>
+        </Card>
     )
 }
 
