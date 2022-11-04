@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import Staffs from './pages/Staffs'
 import Staff from './pages/Staffs/Staff';
 import Department from './pages/Department'
+import DeptId from './pages/Department/DeptId';
 import Salary from './pages/Salary'
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -25,7 +26,8 @@ function App() {
       <Routes>
         <Route path='/' element={ <Staffs />} />
         <Route path='/staffs/:id' element={<Staff />} />
-        <Route path='/dept' element={<Department />} />
+        <Route exact path='/dept' element={<Department />} />
+        <Route path='/dept/:deptId' element={<DeptId />} />
         <Route path='/salary' element={ <Salary />} />
 
         <Route path='*' element = {<NotFound />} />
