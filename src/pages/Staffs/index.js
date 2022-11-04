@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 import CardStaff from "../../components/Card/CardStaff"
 
@@ -30,9 +31,9 @@ return (
                 <label htmlFor="showCol">
                     Show colum: {' '}
                     <select id="showCol" onClick={takeColumn}>
+                        <option value={2}>6</option>
                         <option value={3}>4</option>
                         <option value={4}>3</option>
-                        <option value={2}>6</option>
 
                     </select>
                 </label>
@@ -54,7 +55,10 @@ return (
             {arr.map((staff, index) => {
                 return(
                     <div key={index} className={`col-6 col-sm-4 col-md-${column} mb-5`}>
-                        <CardStaff />
+                        <Link to={`/staffs/${index}`}>
+                        
+                            <CardStaff />
+                        </Link>
                     </div>
                 )
             })}

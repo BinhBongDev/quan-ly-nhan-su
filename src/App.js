@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 
 import Staffs from './pages/Staffs'
+import Staff from './pages/Staffs/Staff';
 import Department from './pages/Department'
 import Salary from './pages/Salary'
 
@@ -23,6 +24,7 @@ function App() {
     <div className="App center-block">
       <Routes>
         <Route path='/' element={ <Staffs />} />
+        <Route path='/staffs/:id' element={<Staff />} />
         <Route path='/dept' element={<Department />} />
         <Route path='/salary' element={ <Salary />} />
 
