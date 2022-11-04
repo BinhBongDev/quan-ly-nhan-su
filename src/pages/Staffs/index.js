@@ -8,6 +8,7 @@ import {fetchStaffsSelector} from '../../redux/selector'
 import { Link } from "react-router-dom"
 
 import CardStaff from "../../components/Card/CardStaff"
+import { Loading } from "../../components/Loading";
 
 const Staffs = () => {
     const [column, setColumn] = useState(2)
@@ -16,10 +17,11 @@ const Staffs = () => {
     const dispatch = useDispatch()
     const staffsRedux = useSelector(fetchStaffsSelector)
 
-    const {isLoading, staffs} = staffsRedux
-  
+    const {isLoading, staffs, errMess} = staffsRedux
+    
     useEffect(() => {
-      dispatch(fetchStaffs())
+        dispatch(fetchStaffs())
+        // eslint-disable-next-line
     }, [])
 
     
@@ -36,10 +38,19 @@ const Staffs = () => {
         console.log(search)
     }
 
-    const arr = [1,2,3,4,5,6,7,8,9,10]
     if(isLoading) {
         return(
-            <div>Loading ....</div>
+            <Loading />
+        )
+    } else if(errMess) {
+        return(
+            <div className="text-center mt-5">
+            <h4>
+                {errMess.error.message}
+            </h4>
+            <p>Back later !!!</p>
+
+            </div>
         )
     } else {
         return (
@@ -74,12 +85,12 @@ const Staffs = () => {
                 </div>
                 
                 <div className="row">
-                    {arr.map((staff, index) => {
+                    {staffs.map((staff, index) => {
                         return(
                             <div key={index} className={`col-6 col-sm-4 col-md-${column} mb-5`}>
-                                <Link to={`/staffs/${index}`}>
+                                <Link to={`/staffs/${staff.id}`}>
                                 
-                                    <CardStaff />
+                                    <CardStaff name = {staff.name} image = {staff.image}  />
                                 </Link>
                             </div>
                         )

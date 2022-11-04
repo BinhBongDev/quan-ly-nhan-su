@@ -29,9 +29,10 @@ const staffsSlice = createSlice({
                 state.staffs = action.payload
             })
             .addCase(fetchStaffs.rejected, (state, action) => {
-                state.errMess = action.payload
+                state.errMess = action
                 state.isLoading = false
                 state.staffs = []
+                
             })
     }
 })
