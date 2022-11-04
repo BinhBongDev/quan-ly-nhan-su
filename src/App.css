@@ -35,7 +35,7 @@ a:hover {
 }
 
 .line {
-  width: 100vw;
+  
   height: 1px;
   background-color: gray;
 }
@@ -67,3 +67,8 @@ a:hover {
 }
 
 
+footer {
+  background-color: hsl(208, 7%, 46%);
+  padding-top: 1px;
+ 
+}
