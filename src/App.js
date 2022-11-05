@@ -60,7 +60,7 @@ function App() {
           errMess = {deptsRedux.errMess}
           depts = {deptsRedux.depts}
           />} />
-          <Route path='/departments/:deptId' element={<DeptId />} />
+          <Route exact path='/departments/:deptId' element={<DeptId />} />
           <Route path='/salary' element={ <Salary
           isLoading = {salaryRedux.isLoading}
           errMess = {salaryRedux.errMess}

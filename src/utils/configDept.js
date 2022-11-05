@@ -9,9 +9,9 @@ export const idToDept = (idDept) => {
 
 export const deptToId = (deptId) => {
     let deptToId = deptId === 'Sale' ? 'Dept01'
-    :deptId === 'Dept02' ? 'hr'
-    :deptId === 'Dept03' ? 'marketing'
-    :deptId === 'Dept04' ? 'it' : 'finance'
+    :deptId === 'HR' ? 'Dept02'
+    :deptId === 'Marketing' ? 'Dept03'
+    :deptId === 'IT' ? 'Dept04' : 'Dept05'
 
     return deptToId
 }
