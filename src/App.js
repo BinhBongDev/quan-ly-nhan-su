@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 
 import { fetchStaffs } from './pages/Staffs/staffsSlice';
-import { fetchStaffsSelector } from './redux/selector';
+import { fetchDepts } from './pages/Department/deptSlice';
+import { fetchStaffsSelector, fetchDeptsSelector } from './redux/selector';
 import './App.css';
 
 import Header from './components/Header';
@@ -22,11 +23,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch()
+  // staffs
     const staffsRedux = useSelector(fetchStaffsSelector)
-
     const {isLoading, staffs, errMess} = staffsRedux
+
+    // depts
+    const deptsRedux = useSelector(fetchDeptsSelector)
+
+
     useEffect(() => {
         dispatch(fetchStaffs())
+        dispatch(fetchDepts())
         // eslint-disable-next-line
     }, [])
 
@@ -44,8 +51,12 @@ function App() {
           staffs = {staffs} errMess = {errMess}
           />} />
           <Route path='/staffs/:id' element={<Staff />} />
-          <Route exact path='/dept' element={<Department />} />
-          <Route path='/dept/:deptId' element={<DeptId />} />
+          <Route exact path='/departments' element={<Department
+          isLoading = {deptsRedux.isLoading}
+          errMess = {deptsRedux.errMess}
+          depts = {deptsRedux.depts}
+          />} />
+          <Route path='/departments/:deptId' element={<DeptId />} />
           <Route path='/salary' element={ <Salary />} />
 
           <Route path='*' element = {<NotFound />} />

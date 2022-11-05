@@ -1,15 +1,15 @@
 import {Card, CardTitle, CardText} from 'reactstrap'
 
-const CardDept = () => {
+const CardDept = ({name, numOfStaff}) => {
 
     return(
         
         <Card body>
       <CardTitle tag="h5">
-        Department: HR
+        {name}
       </CardTitle>
       <CardText>
-        Số lượng: 7 người
+        NumOfMember: {numOfStaff}
       </CardText>
     </Card>
     

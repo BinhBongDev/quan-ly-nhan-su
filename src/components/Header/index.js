@@ -32,7 +32,7 @@ function Header() {
                             </NavLink>
                         </NavItem>
                         <NavItem onClick={closeNav}>
-                            <NavLink to={'/dept'} className={isActive =>
+                            <NavLink to={'/departments'} className={isActive =>
         "nav-link" + (!isActive ? " unselected" : "")
     } >
                                 <span className="fa fa-address-card fa-lg"></span>{' '}
