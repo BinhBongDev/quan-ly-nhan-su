@@ -22,7 +22,7 @@ const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime
             Start-date: {formatStartDate}
           </CardText>
           <CardText>
-          Birthday {formatDob}
+          Birthday: {formatDob}
           </CardText>
           <CardText>
             salary-scale: {salaryScale}

@@ -36,7 +36,7 @@ function Header() {
         "nav-link" + (!isActive ? " unselected" : "")
     } >
                                 <span className="fa fa-address-card fa-lg"></span>{' '}
-                                Department
+                                Departments
                             </NavLink>
                         </NavItem>
                         <NavItem onClick={closeNav}>
