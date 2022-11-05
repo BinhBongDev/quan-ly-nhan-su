@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom"
 import { Breadcrumb, BreadcrumbItem } from "reactstrap"
 import CardSalary from "../../components/Card/CardSalary"
+import { Loading } from "../../components/Loading"
 
-const Salary = () => {
-    const arr = [1,2,3,4,5,6,7,8,9,10]
+const Salary = ({salary, errMess, isLoading}) => {
+
+    if(isLoading) {
+        return <Loading />
+    }
+    if(errMess) {
+        return(
+                <div className="text-center mt-5">
+                <h4>
+                    {errMess.error.message}
+                </h4>
+                <p>Back later !!!</p>
+                </div>
+            )
+    }
     return (
         <div className="container-fluid mt-3">
             <div className="breakCum">
@@ -19,10 +33,18 @@ const Salary = () => {
             </Breadcrumb>
             </div>
             <div className="row">
-                {arr.map((sal, index) => {
+                {salary.map((sal, index) => {
                     return(
-                        <div key={index} className="col-md-3">
-                            <CardSalary />
+                        <div key={index} className="col-12 col-md-3 col-sm-4 mb-3">
+                            <CardSalary
+                            name = {sal.name}
+                            doB = {sal.doB}
+                            deptId = {sal.departmentId}
+                            overTime = {sal.overTime}
+                            salaryScale = {sal.salaryScale}
+                            salary ={sal.salary}
+                            startDate = {sal.startDate}
+                            />
                         </div>
                     )
                 })}

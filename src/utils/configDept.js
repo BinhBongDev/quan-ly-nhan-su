@@ -6,3 +6,12 @@ export const idToDept = (idDept) => {
 
     return nameOfDept
 }
+
+export const deptToId = (deptId) => {
+    let deptToId = deptId === 'Sale' ? 'Dept01'
+    :deptId === 'Dept02' ? 'hr'
+    :deptId === 'Dept03' ? 'marketing'
+    :deptId === 'Dept04' ? 'it' : 'finance'
+
+    return deptToId
+}

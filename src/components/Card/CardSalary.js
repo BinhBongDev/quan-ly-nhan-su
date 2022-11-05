@@ -1,38 +1,39 @@
 import {Card, CardTitle, CardText, CardBody, CardFooter} from 'reactstrap'
+import dateFormat from 'dateformat'
 
-const CardSalary = () => {
+import { idToDept } from '../../utils/configDept'
 
+const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime}) => {
+  const formatDob = dateFormat(doB, 'mm/dd/yyyy')
+  const formatStartDate = dateFormat(startDate, 'mm/dd/yyyy')
     return(
         
         <Card
         className="my-2"
-        style={{
-          width: '18rem'
-        }}
       >
         <CardBody>
           <CardTitle tag="h5">
-            Hoang Van Binh
+            {name}
           </CardTitle>
           <CardText>
-            Phong ban: IT
+            Dept: {idToDept(deptId)}
           </CardText>
           <CardText>
-            Ngay vao cong ty: 01/01/2023
+            Start-date: {formatStartDate}
           </CardText>
           <CardText>
-            Ngay sinh: 17/06/1996
+          Birthday {formatDob}
           </CardText>
           <CardText>
-            He so luong: 1.1
+            salary-scale: {salaryScale}
           </CardText>
           <CardText>
-            So ngay nghi con lai: 7
+            Annua-leave: {overTime}
           </CardText>
           
         </CardBody>
         <CardFooter>
-          Luong:
+          Sum-salary: {salary}
         </CardFooter>
       </Card>
     

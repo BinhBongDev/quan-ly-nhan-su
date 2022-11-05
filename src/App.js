@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import { fetchStaffs } from './pages/Staffs/staffsSlice';
 import { fetchDepts } from './pages/Department/deptSlice';
-import { fetchStaffsSelector, fetchDeptsSelector } from './redux/selector';
+import { fetchSalary } from './pages/Salary/salarySlice';
+import { fetchStaffsSelector, fetchDeptsSelector, fetchSalarySelector } from './redux/selector';
 import './App.css';
 
 import Header from './components/Header';
@@ -30,10 +31,13 @@ function App() {
     // depts
     const deptsRedux = useSelector(fetchDeptsSelector)
 
+    // salary
+    const salaryRedux = useSelector(fetchSalarySelector)
 
     useEffect(() => {
         dispatch(fetchStaffs())
         dispatch(fetchDepts())
+        dispatch(fetchSalary())
         // eslint-disable-next-line
     }, [])
 
@@ -57,7 +61,12 @@ function App() {
           depts = {deptsRedux.depts}
           />} />
           <Route path='/departments/:deptId' element={<DeptId />} />
-          <Route path='/salary' element={ <Salary />} />
+          <Route path='/salary' element={ <Salary
+          isLoading = {salaryRedux.isLoading}
+          errMess = {salaryRedux.errMess}
+          salary = {salaryRedux.salary}
+          
+          />} />
 
           <Route path='*' element = {<NotFound />} />
         </Routes>
