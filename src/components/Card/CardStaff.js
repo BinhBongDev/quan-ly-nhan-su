@@ -5,7 +5,7 @@ const CardStaff = ({name, image }) => {
 
     return(
         <Card>
-          <CardImg src={isImage && 'https://cdn1.vectorstock.com/i/1000x1000/13/05/office-staff-vector-17721305.jpg'} alt={name}/>
+          <CardImg src={isImage && 'https://fj-employer-blog.s3.amazonaws.com/employer-blog/wp-content/uploads/2015/11/5-Ways-to-Analyze-Employee-Performance-1024x508.jpg'} alt={name}/>
           <CardBody>
             <CardTitle tag="h5" className='text-center'>
               {name}

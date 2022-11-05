@@ -41,7 +41,6 @@ const staffsSlice = createSlice({
 export const fetchStaffs = createAsyncThunk('staffs/fetch', async() => {
     const data = await fetch(`${URL}staffs`)
     const staffs = await data.json()
-    
     return staffs
 })
 
