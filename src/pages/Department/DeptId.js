@@ -43,7 +43,7 @@ const DeptId = () => {
                 </BreadcrumbItem>
                 <BreadcrumbItem>
                     <Link to={'/departments'}>
-                        Department
+                        Departments
                     </Link>
                 </BreadcrumbItem>
                 <BreadcrumbItem active>

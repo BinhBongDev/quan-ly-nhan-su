@@ -6,3 +6,24 @@ p a {
     color: blue;
     text-decoration: underline;
 }
+
+.title-staffs {
+    display: flex;
+}
+
+.title-staffs span {
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 8px 1rem;
+    cursor: pointer;
+}
+
+.title-staffs span:hover {
+    background-color: #333;
+    color: #fff;
+}

@@ -35,6 +35,7 @@ function App() {
     const salaryRedux = useSelector(fetchSalarySelector)
 
     useEffect(() => {
+      console.log('useEffect')
         dispatch(fetchStaffs())
         dispatch(fetchDepts())
         dispatch(fetchSalary())
@@ -44,6 +45,7 @@ function App() {
   return (
     
     <BrowserRouter>
+    {console.log('Render')}
       <div className='full-layout'>
         <div className='top-block'>
           <Header />
