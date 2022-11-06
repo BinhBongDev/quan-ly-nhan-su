@@ -40,7 +40,7 @@ function ModalForm({toggleModal}) {
 
   const submitForm = async(e) => {
     e.preventDefault()
-    await dispatch(postStaff(staff))
+    dispatch(postStaff(staff))
     toggle()
   }
   const {name, doB, startDate, salaryScale, annualLeave, overTime} = staff

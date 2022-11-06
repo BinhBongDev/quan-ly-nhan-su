@@ -1,12 +1,13 @@
 import './style.css'
 
-import { useSelector } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { fetchStaffsSelector } from '../../redux/selector'
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardImg, CardText, CardTitle } from "reactstrap"
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { Loading } from '../../components/Loading'
 import {formatToNorma} from '../../utils/formatDate'
 import { idToDept } from '../../utils/configDept'
+import { deleteStaff } from './staffsSlice'
 
 const Staff = () => {
     const {staffs, isLoading} = useSelector(fetchStaffsSelector)
@@ -15,6 +16,18 @@ const Staff = () => {
         return sta.id.toString() === id.toString()
     })[0]
 
+    const dispatch = useDispatch()
+    let navigate = useNavigate()
+    const handelDeleteStaff = () => {
+        if(window.confirm('Do you want delete this staff ?')) {
+            dispatch(deleteStaff(staffId.id))
+            navigate('/')
+        } else {
+            console.log('Delete err!!')
+        }
+    }
+
+    const handleEditStaff = () => {}
 
     if(isLoading) {
         return <Loading />
@@ -51,8 +64,12 @@ const Staff = () => {
                             alt="leftSide" 
                         />
                         <div className="mt-5 mb-3 text-center">
-                            <button className="btn btn-warning me-3">Edit</button>
-                            <button className="btn btn-danger">Delete</button>
+                            <button className="btn btn-warning me-3"
+                            onClick={handleEditStaff}
+                            >Edit</button>
+                            <button className="btn btn-danger"
+                            onClick={handelDeleteStaff}
+                            >Delete</button>
                         </div>
                     </Card>
                 </div>
