@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, FormGroup, Label, Input, Col } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
+import {useDispatch} from 'react-redux'
+
+import {postStaff} from '../../pages/Staffs/staffsSlice'
 
 function ModalForm({toggleModal}) {
   const [modal, setModal] = useState(true);
@@ -33,9 +36,11 @@ function ModalForm({toggleModal}) {
     setStaff(newStaff)
   }
 
-  const submitForm = (e) => {
+  const dispatch = useDispatch()
+
+  const submitForm = async(e) => {
     e.preventDefault()
-    console.log(staff)
+    await dispatch(postStaff(staff))
     toggle()
   }
   const {name, doB, startDate, salaryScale, annualLeave, overTime} = staff
@@ -138,7 +143,7 @@ function ModalForm({toggleModal}) {
                     <Col md={4}>
                         <FormGroup>
                             <Label for="salaryScale">
-                            salary Scale
+                            Salary Scale
                             </Label>
                             <Input
                             id="salaryScale"

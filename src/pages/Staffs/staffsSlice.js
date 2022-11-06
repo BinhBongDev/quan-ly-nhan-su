@@ -4,9 +4,11 @@ import {URL} from '../../utils/url'
 
 const staffsSlice = createSlice({
     name:'staffs',
-    initialState: {isLoading: true,
+    initialState: {
+        isLoading: true,
         staffs: [],
-    errMess: null},
+        errMess: null
+    },
     reducers: {
         // Tuong ung voi bao switch case cua redux core
         getStaffs: (state, action) => {
@@ -34,6 +36,9 @@ const staffsSlice = createSlice({
                 state.staffs = []
                 
             })
+            .addCase(postStaff.fulfilled, (state, action) => {
+                state.staffs = action.payload
+            })
     }
 })
 
@@ -42,6 +47,19 @@ export const fetchStaffs = createAsyncThunk('staffs/fetch', async() => {
     const data = await fetch(`${URL}staffs`)
     const staffs = await data.json()
     return staffs
+})
+
+export const postStaff = createAsyncThunk('staff/post', async(staff) => {
+    const data = await fetch(`${URL}staffs`, {
+        method: 'POST',
+        body: JSON.stringify(staff),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    const takeStaff = await data.json()
+    console.log(takeStaff)
+    return takeStaff
 })
 
 
