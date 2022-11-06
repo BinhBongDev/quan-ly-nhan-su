@@ -3,20 +3,28 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, FormGrou
 import { v4 as uuidv4 } from 'uuid';
 import {useDispatch} from 'react-redux'
 
-import {postStaff} from '../../pages/Staffs/staffsSlice'
+import {postStaff, editStaff} from '../../pages/Staffs/staffsSlice'
+import { idToDept } from '../../utils/configDept';
+import dateFormat from 'dateformat';
 
-function ModalForm({toggleModal}) {
+function ModalForm({toggleModal, idStaff}) {
+    let formatDob
+    let formatStart
+    if(idStaff) {
+        formatDob = dateFormat(idStaff.doB, "yyyy-mm-dd")
+        formatStart = dateFormat(idStaff.startDate, "yyyy-mm-dd")
+    }
   const [modal, setModal] = useState(true);
   const initStaff = {
-    id: uuidv4(),
-    name: '',
-    doB:'',
-    startDate:'',
+    id:idStaff?.id || uuidv4(),
+    name:idStaff?.name || '',
+    doB: formatDob || '',
+    startDate: formatStart || '',
     image: "/assets/images/alberto.png",
-    overTime: 1,
-    annualLeave: 1,
-    salaryScale: 1.2,
-    departmentId: 'Dept01'
+    overTime: idStaff?.overTime || 1,
+    annualLeave: idStaff?.annualLeave || 1,
+    salaryScale: idStaff?.salaryScale     || 1.2,
+    departmentId: idStaff?.departmentId || 'Dept01'
   }
   const [staff, setStaff] = useState(initStaff)
 
@@ -40,14 +48,19 @@ function ModalForm({toggleModal}) {
 
   const submitForm = async(e) => {
     e.preventDefault()
-    dispatch(postStaff(staff))
+    if(idStaff) {
+        dispatch(editStaff(staff))
+        
+    } else {
+        dispatch(postStaff(staff))
+    }
     toggle()
   }
-  const {name, doB, startDate, salaryScale, annualLeave, overTime} = staff
+  const {name, doB, startDate, salaryScale, annualLeave, overTime, departmentId} = staff
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add Staff</ModalHeader>
+        <ModalHeader toggle={toggle}>{idStaff ? 'Edit Staff' : 'Add Staff'}</ModalHeader>
         <Form onSubmit={submitForm}>
             <ModalBody>
                 <FormGroup>
@@ -106,6 +119,7 @@ function ModalForm({toggleModal}) {
                         type="select"
                         onChange={handleChangeValue}
                     >
+                        {idStaff?.id && <option value={departmentId}>{idToDept(departmentId)}</option>}
                         <option value={'Dept01'}>
                         Sale
                         </option>
@@ -172,8 +186,8 @@ function ModalForm({toggleModal}) {
                     </Col>
                 </Row>
             <ModalFooter>
-            <Button type='submit' color="primary">
-                Create
+            <Button type='submit' color={idStaff ? "warning" :"primary"}>
+                {idStaff ? "Save" : 'Create'}
             </Button>{' '}
             <Button color="secondary" onClick={toggle}>
                 Cancel

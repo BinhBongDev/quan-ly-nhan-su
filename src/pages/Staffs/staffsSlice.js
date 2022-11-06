@@ -42,6 +42,9 @@ const staffsSlice = createSlice({
             .addCase(deleteStaff.fulfilled, (state, action) => {
                 state.staffs = action.payload
             })
+            .addCase(editStaff.fulfilled, (state, action) => {
+                state.staffs = action.payload
+            })
     }
 })
 
@@ -62,6 +65,18 @@ export const postStaff = createAsyncThunk('staff/post', async(staff) => {
     })
     const takeStaff = await data.json()
     return takeStaff
+})
+
+export const editStaff = createAsyncThunk('staff/patch', async(staffEdit) => {
+    const data = await fetch(`${URL}staffs`, {
+        method: "PATCH",
+        body: JSON.stringify(staffEdit),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    const editStaff = await data.json()
+    return editStaff
 })
 
 export const deleteStaff = createAsyncThunk('staff/delete', async(idStaff) => {

@@ -54,7 +54,7 @@ const DeptId = () => {
             <div className="row">
                 {dept.map(dep => {
                     return (
-                        <div key={dep.id} className="col-12 col-sm-4 col-md-2 mb-3">
+                        <div key={dep.id} className="col-12 col-sm-4 col-md-3 mb-3">
                             <Link to={`/staffs/${dep.id}`}>
                                 <CardStaff name={dep.name} image={dep.image}/>
                             </Link>
