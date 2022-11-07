@@ -2,6 +2,9 @@ import { Link } from "react-router-dom"
 import { Breadcrumb, BreadcrumbItem } from "reactstrap"
 import CardSalary from "../../components/Card/CardSalary"
 import { Loading } from "../../components/Loading"
+import { idToDept } from "../../utils/configDept"
+import { formatToNorma } from "../../utils/formatDate"
+
 
 const Salary = ({salary, errMess, isLoading}) => {
 
@@ -38,12 +41,13 @@ const Salary = ({salary, errMess, isLoading}) => {
                         <div key={index} className="col-12 col-md-3 col-sm-4 mb-3">
                             <CardSalary
                             name = {sal.name}
-                            doB = {sal.doB}
-                            deptId = {sal.departmentId}
+                            doB = {formatToNorma(sal.doB)}
+                            deptId = {idToDept(sal.departmentId)}
                             overTime = {sal.overTime}
                             salaryScale = {sal.salaryScale}
                             salary ={sal.salary}
-                            startDate = {sal.startDate}
+                            startDate = {formatToNorma(sal.startDate)}
+                            annualLeave={sal.annualLeave}
                             />
                         </div>
                     )

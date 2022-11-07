@@ -1,11 +1,8 @@
 import {Card, CardTitle, CardText, CardBody, CardFooter} from 'reactstrap'
-import dateFormat from 'dateformat'
 
-import { idToDept } from '../../utils/configDept'
 
-const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime}) => {
-  const formatDob = dateFormat(doB, 'mm/dd/yyyy')
-  const formatStartDate = dateFormat(startDate, 'mm/dd/yyyy')
+const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime, annualLeave}) => {
+  
     return(
         
         <Card
@@ -16,19 +13,22 @@ const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime
             {name}
           </CardTitle>
           <CardText>
-            Dept: {idToDept(deptId)}
+            Dept: {deptId}
           </CardText>
           <CardText>
-            Start-date: {formatStartDate}
+            Start-date: {startDate}
           </CardText>
           <CardText>
-          Birthday: {formatDob}
+          Birthday: {doB}
           </CardText>
           <CardText>
-            salary-scale: {salaryScale}
+            Salary-scale: {salaryScale}
           </CardText>
           <CardText>
-            Annua-leave: {overTime}
+            Annual-leave: {annualLeave}
+          </CardText>
+          <CardText>
+            Over-time: {overTime}
           </CardText>
           
         </CardBody>
