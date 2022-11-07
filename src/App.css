@@ -24,6 +24,13 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .show-colume {
+    display: none;
+  }
+}
+
 .full-layout {
   display: flex;
   flex-direction: column;

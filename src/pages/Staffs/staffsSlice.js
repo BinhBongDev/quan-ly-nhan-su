@@ -84,7 +84,6 @@ export const deleteStaff = createAsyncThunk('staff/delete', async(idStaff) => {
         method: 'DELETE'
     })
     const staff = await data.json()
-    console.log(staff)
     return staff
 })
 

@@ -12,6 +12,7 @@ const Staffs = ({isLoading, staffs, errMess}) => {
     const [column, setColumn] = useState(2)
     const [search, setSearch] = useState('')
     const [showModal, setShowModal] = useState(false)
+    const [searchStaff, setSearchStaff] = useState('')
 
     const takeColumn = (e) => {
         setColumn(e.target.value)
@@ -20,10 +21,18 @@ const Staffs = ({isLoading, staffs, errMess}) => {
     const handleChangInputSearch = (e) => {
         setSearch(e.target.value)
     }
-
+    
+    // Search Staff
+    if(searchStaff.length > 0) {
+        staffs = staffs.filter(staff => {
+            let lowerStaffName = staff.name.toLowerCase()
+            let lowerSearchStaff = searchStaff.toLowerCase()
+            return lowerStaffName.includes(lowerSearchStaff)
+        })
+    } 
     const takeInputSearch = (e) => {
         e.preventDefault()
-        console.log(search)
+        setSearchStaff(search)
     }
 
     if(isLoading) {
@@ -68,7 +77,7 @@ const Staffs = ({isLoading, staffs, errMess}) => {
                         </div>
                         <div className="search">
                                 <form onSubmit={takeInputSearch}>
-                                    <input type={'text'} placeholder='Search by name' name="search"
+                                    <input type={'text'} placeholder='Search by name' name="search" className="me-3"
                                     value={search}
                                     onChange={handleChangInputSearch}
                                     />
@@ -78,11 +87,11 @@ const Staffs = ({isLoading, staffs, errMess}) => {
                                 </form>
                         </div>
                         </div>
-                        
-                        <div className="row">
-                            {staffs.map((staff, index) => {
+                        {(staffs.length > 0) ? <>
+                            <div className="row">
+                            {(staffs).map((staff, index) => {
                                 return(
-                                    <div key={index} className={`col-6 col-sm-4 col-md-${column} mb-5`}>
+                                    <div key={index} className={`col-6 col-sm-3 col-md-${column} mb-5`}>
                                         <Link to={`/staffs/${staff.id}`}>
                                         
                                             <CardStaff name = {staff.name} image = {staff.image}  />
@@ -93,6 +102,15 @@ const Staffs = ({isLoading, staffs, errMess}) => {
                 
                         </div>
                         <p>Click to show more detail a staff !!</p>
+                        </>
+                        : 
+                        <>
+                        <div>
+                            <h3>No found staff with key search !!</h3>
+                        </div>
+                        </>}
+                        
+                        
                     </div>
                     {showModal && <ModalForm toggleModal = {setShowModal}/>}
                 </Fragment>
