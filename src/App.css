@@ -48,8 +48,13 @@ a:hover {
 }
 
 .notFound {
-  margin: 1rem auto;
   text-align: center;
+}
+
+.notFound .image-notFound {
+  max-width: 500px;
+  margin: 1rem auto;
+  
 }
 
 /* Search in Staffs */

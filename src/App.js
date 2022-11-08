@@ -19,6 +19,7 @@ import DeptId from './pages/Department/DeptId';
 import Salary from './pages/Salary'
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from './components/Home';
 
 
 
@@ -69,7 +70,7 @@ function App() {
           salary = {salaryRedux.salary}
           
           />} />
-
+          <Route path='/quan-ly-nhan-su' element={<Home />} />
           <Route path='*' element = {<NotFound />} />
         </Routes>
       </div>
