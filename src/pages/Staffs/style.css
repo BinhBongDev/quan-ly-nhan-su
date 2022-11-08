@@ -33,4 +33,13 @@ p a {
     outline: none;
     background-color: rgb(71, 71, 240);
     color: #fff;
+    border: rgb(71, 71, 240);
+    border-radius: 2px;
+}
+
+.search input {
+    border: 1px grey solid;
+    border-radius: 2px;
+    padding-left: 5px;
+    outline: none;
 }

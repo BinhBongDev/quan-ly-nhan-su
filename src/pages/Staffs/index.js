@@ -78,7 +78,7 @@ const Staffs = ({isLoading, staffs, errMess}) => {
                         <div className="search">
                                 <form onSubmit={takeInputSearch}>
                                     <input type={'text'} placeholder='Search by name' name="search"
-                                    className="me-3"
+                                    className="me-3 mb-2"
                                     value={search}
                                     onChange={handleChangInputSearch}
                                     />
