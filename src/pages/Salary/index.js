@@ -1,12 +1,35 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Breadcrumb, BreadcrumbItem } from "reactstrap"
+import _ from 'lodash'
 import CardSalary from "../../components/Card/CardSalary"
 import { Loading } from "../../components/Loading"
+import Sort from "../../components/Sort"
 import { idToDept } from "../../utils/configDept"
 import { formatToNorma } from "../../utils/formatDate"
 
 
-const Salary = ({salary, errMess, isLoading}) => {
+const Salary = ({salary:salaryRen , errMess, isLoading}) => {
+    const [sortStaff, setSortStaff] = useState(1)
+
+    if(sortStaff === 1) {
+        salaryRen = _.orderBy(salaryRen, ['name'], ['asc'])
+    }
+
+    if(sortStaff === 3) {
+        salaryRen = _.sortBy(salaryRen, [function(o) {
+            return o.salary
+        }])
+    }
+
+    if(sortStaff === 2) {
+        salaryRen = _.orderBy(salaryRen, ['name'], ['desc'])
+    }
+
+    if(sortStaff === 4) {
+        salaryRen = _.orderBy(salaryRen, ['salary'], ['desc'])
+    }
+    
 
     if(isLoading) {
         return <Loading />
@@ -35,10 +58,13 @@ const Salary = ({salary, errMess, isLoading}) => {
                 </BreadcrumbItem>
             </Breadcrumb>
             </div>
+            <div className="sort mb-3">
+                <Sort setSortStaff = {setSortStaff} />
+            </div>
             <div className="row">
-                {salary.map((sal, index) => {
+                {salaryRen.map((sal, index) => {
                     return(
-                        <div key={index} className="col-12 col-md-3 col-sm-4 mb-3">
+                        <div key={index} className="col-12 col-md-4 col-sm-6 col-lg-3 mb-3">
                             <CardSalary
                             name = {sal.name}
                             doB = {formatToNorma(sal.doB)}

@@ -13,7 +13,7 @@ const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime
             {name}
           </CardTitle>
           <CardText>
-            Dept: {deptId}
+            Department: {deptId}
           </CardText>
           <CardText>
             Start-date: {startDate}
@@ -33,7 +33,7 @@ const CardSalary = ({name, doB, deptId, startDate, salary, salaryScale, overTime
           
         </CardBody>
         <CardFooter>
-          Sum-salary: {salary}
+          Salary: {salary}
         </CardFooter>
       </Card>
     
