@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/quan-ly-nhan-su/static/css/main.7e965d91.css",
-    "main.js": "/quan-ly-nhan-su/static/js/main.0dcace18.js",
+    "main.css": "/quan-ly-nhan-su/static/css/main.bd61cb00.css",
+    "main.js": "/quan-ly-nhan-su/static/js/main.df1775f9.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/quan-ly-nhan-su/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/quan-ly-nhan-su/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/quan-ly-nhan-su/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/quan-ly-nhan-su/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/quan-ly-nhan-su/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/quan-ly-nhan-su/index.html",
-    "main.7e965d91.css.map": "/quan-ly-nhan-su/static/css/main.7e965d91.css.map",
-    "main.0dcace18.js.map": "/quan-ly-nhan-su/static/js/main.0dcace18.js.map"
+    "main.bd61cb00.css.map": "/quan-ly-nhan-su/static/css/main.bd61cb00.css.map",
+    "main.df1775f9.js.map": "/quan-ly-nhan-su/static/js/main.df1775f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e965d91.css",
-    "static/js/main.0dcace18.js"
+    "static/css/main.bd61cb00.css",
+    "static/js/main.df1775f9.js"
   ]
 }
