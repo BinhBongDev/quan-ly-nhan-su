@@ -77,12 +77,14 @@ const Staffs = ({isLoading, staffs, errMess}) => {
                         </div>
                         <div className="search">
                                 <form onSubmit={takeInputSearch}>
-                                    <input type={'text'} placeholder='Search by name' name="search" className="me-3"
+                                    <input type={'text'} placeholder='Search by name' name="search"
+                                    className="me-3"
                                     value={search}
                                     onChange={handleChangInputSearch}
                                     />
                                     <button
                                     type={'submit'}
+                                    className="btn-search"
                                     >Search</button>
                                 </form>
                         </div>
