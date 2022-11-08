@@ -53,7 +53,7 @@ function App() {
         </div>
       <div className="App center-block">
         <Routes>
-          <Route path='/' element={ <Staffs 
+          <Route exact path='/staffs' element={ <Staffs 
           isLoading={isLoading}
           staffs = {staffs} errMess = {errMess}
           />} />

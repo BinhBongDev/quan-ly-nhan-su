@@ -10,7 +10,7 @@ const NotFound = () => {
                 style={{width: "100%"}}
                 />
             </div>
-            <h3 className=""><Link to={'/'}>Back to Home. </Link></h3>
+            <h3 className=""><Link to={'/staffs'}>Back to Home. </Link></h3>
 
         </div>
     )

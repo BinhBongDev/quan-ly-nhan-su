@@ -47,7 +47,7 @@ const Footer = () => {
                 Useful links
             </h6>
             <p>
-                <Link to="/" className="text-reset">Staffs</Link>
+                <Link to="/staffs" className="text-reset">Staffs</Link>
             </p>
             <p>
                 <Link to="/departments" className="text-reset">Department</Link>

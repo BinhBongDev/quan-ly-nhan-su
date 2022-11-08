@@ -25,7 +25,7 @@ const Department = ({isLoading, errMess, depts}) => {
             <div className="breakCum">
             <Breadcrumb>
                 <BreadcrumbItem>
-                    <Link to={'/'}>
+                    <Link to={'/staffs'}>
                         Staffs
                     </Link>
                 </BreadcrumbItem>

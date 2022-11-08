@@ -37,7 +37,7 @@ const DeptId = () => {
             <div className="breakCum">
             <Breadcrumb>
                 <BreadcrumbItem>
-                    <Link to={'/'}>
+                    <Link to={'/staffs'}>
                         Staffs
                     </Link>
                 </BreadcrumbItem>

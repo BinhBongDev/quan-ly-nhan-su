@@ -24,7 +24,7 @@ const Staff = () => {
     const handelDeleteStaff = () => {
         if(window.confirm('Do you want delete this staff ?')) {
             dispatch(deleteStaff(staffId.id))
-            navigate('/')
+            navigate('/staffs')
         } else {
             console.log('Delete err!!')
         }
@@ -41,7 +41,7 @@ const Staff = () => {
         return(
             <div className='text-center'>
                 <h5>Not found staff with id: {id}</h5>
-                <p><a href='/'>Back to home</a></p>
+                <p><a href='/staffs'>Back to home</a></p>
             </div>
         )
     }

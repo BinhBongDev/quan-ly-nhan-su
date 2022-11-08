@@ -49,7 +49,7 @@ const Salary = ({salary:salaryRen , errMess, isLoading}) => {
             <div className="breakCum">
             <Breadcrumb>
                 <BreadcrumbItem>
-                    <Link to={'/'}>
+                    <Link to={'/staffs'}>
                         Staffs
                     </Link>
                 </BreadcrumbItem>

@@ -19,14 +19,14 @@ function Header() {
   return (
         <Navbar color="primary" light expand="md" >
             
-                <NavbarBrand href='/'>Home</NavbarBrand>
+                <NavbarBrand href='/staffs'>Home</NavbarBrand>
                 <NavbarToggler onClick={() => toggle() } />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem onClick={closeNav}>
                             <NavLink className={isActive =>
         "nav-link" + (!isActive ? " unselected" : "")
-    } to={'/'}>
+    } to={'/staffs'}>
                                 <span className="fa fa-users fa-lg"></span>{' '}
                                 Staffs
                             </NavLink>
